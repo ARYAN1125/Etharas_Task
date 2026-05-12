@@ -21,13 +21,10 @@ const PORT = process.env.PORT || 5000;
 // Security middleware
 app.use(helmet());
 
-// CORS
+// CORS - allow all origins
 app.use(
   cors({
-    origin: function(origin, callback) {
-      // Allow all origins in production for now
-      callback(null, true);
-    },
+    origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
