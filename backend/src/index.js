@@ -6,7 +6,7 @@ const morgan = require('morgan');
 
 console.log('Starting TaskFlow backend...');
 console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('PORT:', process.env.PORT);
+console.log('PORT:', process.env.PORT || 5000);
 console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
 
 const authRoutes = require('./routes/auth.routes');
