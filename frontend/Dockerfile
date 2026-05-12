@@ -12,8 +12,8 @@ ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build
 
-RUN npm install -g serve
+RUN npm install -g http-server
 
-EXPOSE 3000
+EXPOSE 8080
 
-CMD ["serve", "-s", "dist", "-p", "3000"]
+CMD ["http-server", "dist", "-p", "8080", "--proxy", "http://localhost:8080?"]
