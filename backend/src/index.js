@@ -3,6 +3,16 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const { execSync } = require('child_process');
+
+// Run DB migrations on startup (safe to run multiple times)
+try {
+  console.log('Running database migrations...');
+  execSync('npx prisma db push --accept-data-loss', { stdio: 'inherit' });
+  console.log('Database migrations complete.');
+} catch (err) {
+  console.error('Migration error (continuing anyway):', err.message);
+}
 
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');

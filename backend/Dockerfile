@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "npx prisma db push && node src/index.js"]
+CMD ["node", "src/index.js"]
